@@ -1,5 +1,5 @@
 from services.tutorial_controlador import obtener_tutoriales, obtener_tutorial_por_id, agregar_tutorial, actualizar_tutorial, eliminar_tutorial_por_id
-from services.detalle_controlador import agregar_detalle, eliminar_detalle_por_id, actualizar_detalle
+from services.detalle_controlador import agregar_detalle, eliminar_detalle_por_id, actualizar_detalle, obtener_detalle_por_id
 from flask import Flask, jsonify, request
 from services.db import crear_tablas
 
@@ -9,14 +9,14 @@ app = Flask(__name__)
 
 @app.route('/api/tutorial', methods=["GET"])
 def get_tutoriales():
-    tutoriales = obtener_tutoriales()
-    return jsonify(tutoriales)
+    result = obtener_tutoriales()
+    return jsonify(result)
 
 
 @app.route('/api/tutorial/<id>', methods=["GET"])
 def get_tutorial(id):
-    tutorial = obtener_tutorial_por_id(id)
-    return jsonify(tutorial)
+    result = obtener_tutorial_por_id(id)
+    return jsonify(result)
 
 
 @app.route('/api/tutorial', methods=["POST"])
@@ -43,7 +43,7 @@ def modificar_tutorial():
 
     # Necesario para poder modificar el autor del tutorial
     tutorial = obtener_tutorial_por_id(id)
-    id_detalle = tutorial["id_detalle"]
+    id_detalle = tutorial[5]
     actualizar_detalle(id_detalle, nombre_autor)
 
     result = actualizar_tutorial(
@@ -54,10 +54,14 @@ def modificar_tutorial():
 @app.route('/api/tutorial/<id>', methods=["DELETE"])
 def eliminar_tutorial(id):
     tutorial = obtener_tutorial_por_id(id)
-    eliminar_detalle_por_id(tutorial["id_detalle"])
-    eliminar_tutorial_por_id(id)
-    return jsonify(tutorial)
+    eliminar_detalle_por_id(tutorial[5])
+    result = eliminar_tutorial_por_id(id)
+    return jsonify(result)
 
+@app.route('/api/detalle/<id>', methods=["GET"])
+def get_detalle(id):
+    detalle = obtener_detalle_por_id(id)
+    return jsonify(detalle)
 
 if __name__ == "__main__":
     crear_tablas()

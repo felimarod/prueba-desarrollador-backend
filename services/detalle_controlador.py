@@ -38,7 +38,7 @@ def actualizar_detalle(id, nombre_autor):
 def eliminar_detalle_por_id(id):
     db = get_db()
     cursor = db.cursor()
-    statement = "DELETE FROM Detalle WHERE id = ?"
+    statement = "DELETE FROM Detalle WHERE id_detalle = ?"
     cursor.execute(statement, [id])
     db.commit()
     return True

@@ -39,7 +39,7 @@ def actualizar_tutorial(id, tema, descripcion, titulo, visible, id_detalle):
 def eliminar_tutorial_por_id(id):
     db = get_db()
     cursor = db.cursor()
-    statement = "DELETE FROM Tutorial WHERE id = ?"
+    statement = "DELETE FROM Tutorial WHERE id_tutorial = ?"
     cursor.execute(statement, [id])
     db.commit()
     return True
