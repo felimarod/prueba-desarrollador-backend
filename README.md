@@ -5,15 +5,15 @@
 Repositorio para almacenar el backend y lo referente a la base de datos para la prueba de la OATI.
 
 ## Tecnologías utilizadas
-Para desarrollar el backend de este proyecot, se utilizo:
+Para desarrollar el backend de este proyecto, se utilizo:
 
-1. Desarrollo del backend del aplicativo.
-	  - Con el framework [Flask][3]
-2. Base de datos hecha en [SQLite][4]
+1. Python 3.10
+2. [Flask][3]
+2. [SQLite][4]
 
 ## Modelo base de datos
 
-![Imagén del modelo relacional|auto][5]
+![5]
 
  [1]:https://gitlab.com/felimarod
  [2]:https://github.com/felimarod/prueba-desarrollador-backend.git

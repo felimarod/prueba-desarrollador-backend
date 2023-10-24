@@ -17,7 +17,7 @@ def crear_tablas():
                 str_tema TEXT NOT NULL,
 				str_descripcion TEXT NOT NULL,
 				str_titulo TEXT NOT NULL,
-                visible BOOLEAN,
+                visible INT,
                 id_detalle INTEGER NOT NULL,
                 FOREIGN KEY (id_detalle) REFERENCES Detalle (id_detalle)
             )""",

@@ -30,7 +30,8 @@ def actualizar_tutorial(id, tema, descripcion, titulo, visible, id_detalle):
     db = get_db()
     cursor = db.cursor()
     statement = "UPDATE Tutorial SET str_tema = ?, str_descripcion = ?, str_titulo = ?, visible = ?, id_detalle = ? WHERE id_tutorial = ?"
-    cursor.execute(statement, [tema, descripcion, titulo, visible, id_detalle, id])
+    cursor.execute(statement, [tema, descripcion,
+                   titulo, visible, id_detalle, id])
     db.commit()
     return True
 
