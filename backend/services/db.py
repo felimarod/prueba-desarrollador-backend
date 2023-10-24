@@ -8,11 +8,11 @@ def get_db():
 def crear_tablas():
     tablas = [
         """CREATE TABLE IF NOT EXISTS Creador(
-                id_creador INTEGER PRIMARY KEY AUTOINCREMENT,
+                id_creador INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                 str_nombre TEXT NOT NULL
             )""",
         """CREATE TABLE IF NOT EXISTS Tutorial(
-                id_tutorial INTEGER PRIMARY KEY AUTOINCREMENT,
+                id_tutorial INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                 str_tema TEXT NOT NULL,
 				str_descripcion TEXT NOT NULL,
 				str_titulo TEXT NOT NULL,
@@ -23,7 +23,6 @@ def crear_tablas():
             )""",
         
     ]
-    # ALTER TABLE Miembro ADD CONSTRAINT FK_MIEMBROPERSONA FOREIGN KEY ("k_tipoid", "k_id") REFERENCES Persona ("k_tipoid", "k_id");
     db = get_db()
     cursor = db.cursor()
     for tabla in tablas:
