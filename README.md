@@ -1,6 +1,7 @@
 #  **Prueba tecnica para desarrollador como tecnologo 04**
 
-[![Felipe Martin Rodríguez](https://img.shields.io/badge/felimarod-github-blue?style=flat-square)][1]
+Andrés Felipe Martín Rodríguez [![Felipe Martin Rodríguez](https://img.shields.io/badge/felimarod-github-blue?style=flat-square)][1]
+
 
 Repositorio para almacenar el backend y lo referente a la base de datos para la prueba de la OATI.
 
