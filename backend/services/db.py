@@ -1,5 +1,5 @@
 import sqlite3
-NOMBRE_DB="/home/felipe/Documentos/work/db/tutoriales.db"
+NOMBRE_DB="db/tutoriales.db"
 
 def get_db():
     conexion = sqlite3.connect(NOMBRE_DB)
@@ -7,8 +7,9 @@ def get_db():
 
 def crear_tablas():
     tablas = [
-        """CREATE TABLE IF NOT EXISTS Creador(
-                id_creador INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        """CREATE TABLE IF NOT EXISTS Detalle (
+                id_detalle INTEGER PRIMARY KEY,
+                fecha_creacion TEXT NOT NULL,
                 str_nombre TEXT NOT NULL
             )""",
         """CREATE TABLE IF NOT EXISTS Tutorial(
@@ -17,9 +18,8 @@ def crear_tablas():
 				str_descripcion TEXT NOT NULL,
 				str_titulo TEXT NOT NULL,
                 visible BOOLEAN,
-                fecha_creacion TEXT NOT NULL,
-                creador_id INTEGER NOT NULL,
-                FOREIGN KEY (creador_id) REFERENCES Creador (id_creador)
+                id_detalle INTEGER NOT NULL,
+                FOREIGN KEY (id_detalle) REFERENCES Detalle (id_detalle)
             )""",
         
     ]
