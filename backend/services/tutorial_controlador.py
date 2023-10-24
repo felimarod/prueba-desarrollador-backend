@@ -23,7 +23,7 @@ def agregar_tutorial(tema, descripcion, titulo, visible, id_detalle):
     statement = "INSERT INTO Tutorial ( str_tema, str_descripcion, str_titulo, visible, id_detalle ) VALUES ( ?, ?, ?, ?, ? )"
     cursor.execute(statement, [tema, descripcion, titulo, visible, id_detalle])
     db.commit()
-    return True
+    return cursor.lastrowid
 
 
 def actualizar_tutorial(id, tema, descripcion, titulo, visible, id_detalle):

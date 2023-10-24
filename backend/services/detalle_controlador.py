@@ -23,7 +23,7 @@ def agregar_detalle(nombre_autor):
     statement = "INSERT INTO Detalle (fecha_creacion, str_nombre ) VALUES (datetime('now', 'localtime'), ? )"
     cursor.execute(statement, [nombre_autor])
     db.commit()
-    return True
+    return cursor.lastrowid
 
 
 def actualizar_detalle(id, nombre_autor):
