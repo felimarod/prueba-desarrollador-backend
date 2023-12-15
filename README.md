@@ -68,6 +68,18 @@ De eliminarse exitosamente, nos devolverá `true`
 
 **NOTA:** También existe el endpoint `localhost:5000/api/detalle/<id>` por si se desea ver el detalle de algún tutorial, se debe tener el id del detalle para realizar esto.
 
+#  Docker 
+## Crea la imagen de Docker 
+```sh
+docker build -t test-backend .
+```
+
+## Corre la imagen recien creada 
+```sh
+docker run --rm -it -p8000:8000 -v "C:/Users/andre/Documents/prueba-docker/backend:/app" --name test-backend test-backend
+```
+
+
  [1]:https://gitlab.com/felimarod
  [2]:https://github.com/felimarod/prueba-desarrollador-backend.git
  [3]:https://flask.palletsprojects.com/en/3.0.x/
