@@ -76,7 +76,11 @@ docker build -t test-backend .
 
 ## Corre la imagen recien creada 
 ```sh
-docker run --rm -it -p8000:8000 -v "C:/Users/andre/Documents/prueba-docker/backend:/app" --name test-backend test-backend
+docker run -d --rm -it \
+    --name test-backend \
+    -p8000:8000 \
+    -v "C:/Users/andre/Documents/prueba-docker/backend:/app" \
+    test-backend
 ```
 
 
