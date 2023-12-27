@@ -1,7 +1,10 @@
 from services.tutorial_controlador import obtener_tutoriales, obtener_tutorial_por_id, agregar_tutorial, actualizar_tutorial, eliminar_tutorial_por_id
 from services.detalle_controlador import agregar_detalle, eliminar_detalle_por_id, actualizar_detalle, obtener_detalle_por_id
-from flask import Flask, jsonify, request
 from services.db import crear_tablas
+
+from flask import Flask, jsonify, request
+# from flask_cors import CORS, cross_origin
+
 
 
 app = Flask(__name__)
@@ -65,16 +68,17 @@ def get_detalle(id):
     return jsonify(detalle)
 
 
-@app.after_request
-def after_request(response):
-    # <- You can change "*" for a domain for example "http://localhost"
-    response.headers["Access-Control-Allow-Origin"] = "*"
-    response.headers["Access-Control-Allow-Credentials"] = "true"
-    response.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS, PUT, DELETE"
-    response.headers["Access-Control-Allow-Headers"] = "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
-    return response
+# @app.after_request
+# def after_request(response):
+#     # <- You can change "*" for a domain for example "http://localhost"
+#     response.headers["Access-Control-Allow-Origin"] = "*"
+#     response.headers["Access-Control-Allow-Credentials"] = "true"
+#     response.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS, PUT, DELETE"
+#     response.headers["Access-Control-Allow-Headers"] = "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
+#     return response
 
 
 if __name__ == "__main__":
     crear_tablas()
+    # app.run(port=8000, debug=True)
     app.run(host='0.0.0.0', port=8000, debug=True)
